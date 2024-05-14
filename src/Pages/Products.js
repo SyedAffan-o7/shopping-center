@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 export default function TableData() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let url = "https://dummyjson.com/products";
@@ -9,11 +11,16 @@ export default function TableData() {
       .then((response) => response.json())
       .then((data) => {
         setData(data.products);
+        setLoading(false);
       });
   }, []);
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div className="row">
+    <div className="row" style={{ padding: "50px" }}>
       {data.map((product) => (
         <div key={product.id} className="col-md-4 mb-4">
           <div className="card" style={{ height: "500px" }}>
@@ -25,7 +32,10 @@ export default function TableData() {
               }}
             ></div>
             <div className="card-body">
-              <h5 className="card-title">{product.title}</h5>
+              <Link to={`/productdetail/${product.id}`}>
+                <h5 className="card-title">{product.title} </h5>
+              </Link>
+
               <p className="card-text">
                 <i>{product.category}</i>
               </p>

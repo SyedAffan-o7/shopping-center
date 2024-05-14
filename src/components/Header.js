@@ -6,7 +6,7 @@ export default function Header() {
       <h1>Header</h1>
       <a href="/"> Home </a>
       <a href="/about"> About </a>
-      <a href="/table"> Table </a>
+      <a href="/products"> Products </a>
     </div>
   );
 }

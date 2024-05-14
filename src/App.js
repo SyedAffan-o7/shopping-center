@@ -5,7 +5,8 @@ import About from "./Pages/About";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import TableData from "./Pages/TableData";
+import Products from "./Pages/Products";
+import Productdetail from "./Pages/Productdetail";
 function App() {
   return (
     <div className="App">
@@ -14,7 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/table" element={<TableData />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/productdetail/:id" element={<Productdetail />} />
         </Routes>
       </Router>
       <Footer />
